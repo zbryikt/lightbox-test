@@ -1,0 +1,17 @@
+<script type="@plotdb/block">
+module.export = {
+  pkg: {},
+  init: function() {
+  },
+  interface: function() { 
+    return {
+      adapt: function(host) {
+      console.log("adapt called", host);
+      },
+      load: function(data) {
+      console.log("load called", data);
+      }
+    }
+  }
+};
+</script>
