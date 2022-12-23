@@ -1,11 +1,24 @@
+<div>
+<input>
 <script type="@plotdb/block">
 module.export = {
   pkg: {},
-  init: function() {
+  init: function(opt) {
+    var that = this;
+    this.data = {};
+    var input = opt.root.querySelector("input");
+    input.addEventListener("input", function() { 
+      this.data.input = input.value;
+      that.host.save(this.data);
+      
+    });
+    
   },
   interface: function() { 
+    var that = this;
     return {
       adapt: function(host) {
+      that.host = host;
       console.log("adapt called", host);
       },
       load: function(data) {
@@ -15,3 +28,4 @@ module.export = {
   }
 };
 </script>
+</div>
